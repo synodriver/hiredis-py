@@ -14,7 +14,7 @@ parser.add_option("-n", dest="count", metavar="COUNT", type="int", default=10000
 parser.add_option("-c", dest="clients", metavar="CLIENTS", type="int", default=1),
 (options, args) = parser.parse_args()
 
-commands = list()
+commands = []
 for line in sys.stdin.readlines():
   argv = line.strip().split()
   commands.append((argv[0], argv[1:]))

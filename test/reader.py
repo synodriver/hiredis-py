@@ -300,10 +300,10 @@ class ReaderTest(TestCase):
 
     # hiredis reallocates and removes unused buffer once
     # there is at least 1K of not used data.
-    calls = int((1024 / len(data))) + 1
-    for i in range(calls):
-        self.reader.feed(data)
-        self.reply()
+    calls = 1024 // len(data) + 1
+    for _ in range(calls):
+      self.reader.feed(data)
+      self.reply()
 
     self.assertEquals(5, self.reader.len())
 
